@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mum's Taxi</title>
+</head>
+<body>
+    <div class="container">
+     <form>
+        <label class="labels" for="amount">How much monthly?</label>
+        <input class="inputs" type="number" id="amount"/><br/>
+
+        <label class="labels" for="amount">How many days?</label>
+        <input class="inputs" type="number" id="days"/><br/>
+
+        <button id="go">Go!</button>
+
+     </form>
+
+     <div id="output"></div>
+
+    </div>
+
+    <script>
+        document.getElementById("go").addEventListener('click',calculateAmount);
+
+        function calculateAmount(e){
+            e.preventDefault();
+
+            var monthlyAmount = parseInt(document.getElementById("amount").value);
+            var days =parseInt(document.getElementById("days").value);
+            var finalValue = monthlyAmount / 22 * days;
+
+            document.getElementById("output").innerHTML = "R " + finalValue.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
