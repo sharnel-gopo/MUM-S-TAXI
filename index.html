@@ -9,31 +9,31 @@
 <body>
     <div class="container">
      <form>
-        <label class="labels" for="amount">How much monthly?</label>
+        <label class="labels" for="amount">Taxi fare per day(One cycle trip)?</label>
         <input class="inputs" type="number" id="amount"/><br/>
         <br/><br/><br/>
-        <label class="labels" for="amount">How many days?</label>
+        <label class="labels" for="amount">School days in a month?</label>
         <input class="inputs" type="number" id="days"/><br/>
 
-        <button id="go">Go!</button>
+        <button id="calculate">Calculate</button>
 
      </form>
 
-     <div id="output"></div>
+     <div id="output">Monthly total fare cost: </div>
 
     </div>
 
     <script>
-        document.getElementById("go").addEventListener('click',calculateAmount);
+        document.getElementById("calculate").addEventListener('click',calculateAmount);
 
         function calculateAmount(e){
             e.preventDefault();
 
             var monthlyAmount = parseInt(document.getElementById("amount").value);
             var days =parseInt(document.getElementById("days").value);
-            var finalValue = monthlyAmount / 22 * days;
+            var finalValue = monthlyAmount * days;
 
-            document.getElementById("output").innerHTML = "R " + finalValue.toFixed(2);
+            document.getElementById("output").innerHTML += "R " + finalValue.toFixed(2);
         }
     </script>
 </body>
